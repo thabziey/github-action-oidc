@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "Federated": "arn:aws:iam::905418227649:oidc-provider/token.actions.githubusercontent.com"
+        },
+        "Action": "sts:AssumeRoleWithWebIdentity",
+        "Condition": {
+          "StringEquals": {
+            "token.actions.githubusercontent.com:sub": [
+              "repo:thabziey/github-action-oidc:pull_request",
+              "repo:thabziey/github-action-oidc:ref:refs/heads/main"
+            ],
+            "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+          }
+        }
+      }
+    ]
+  }
